@@ -1,0 +1,11 @@
+
+---
+
+### How to use:
+
+1. Save the above code into a file named `create_bot_zip.py`.
+
+2. Run this script:
+
+```bash
+python create_bot_zip.py
