@@ -1,0 +1,55 @@
+import os
+import zipfile
+
+project_name = 'crypto_trading_bot'
+
+files = {
+    'config.py': '''\
+BINANCE_API_KEY = 'your_binance_api_key_here'
+BINANCE_API_SECRET = 'your_binance_api_secret_here'
+
+COINBASE_API_KEY = 'your_coinbase_api_key_here'
+COINBASE_API_SECRET = 'your_coinbase_api_secret_here'
+
+TELEGRAM_BOT_TOKEN = 'your_telegram_bot_token_here'
+
+AI_MODEL_PATH = 'model/trading_ai_model.h5'
+TRAINING_EPOCHS = 5
+BATCH_SIZE = 32
+''',
+
+    'requirements.txt': '''\
+python-telegram-bot==20.3
+python-binance==1.0.15
+coinbase==2.1.0
+tensorflow==2.13.0
+pandas==2.0.3
+numpy==1.25.2
+sqlalchemy==2.0.17
+''',
+
+    'README.md': '''\
+# Crypto Trading Bot with AI & Telegram Integration
+
+## Features
+- 24/7 trading signal bot for Binance and Coinbase.
+- AI model using TensorFlow learns from your trades to improve signals.
+- Telegram commands:
+  - /signal - Get general trade signal
+  - /signal.s - Get short-term trade signal
+  - /signal.l - Get long-term trade signal
+  - #trade_id - Confirm a trade you entered (e.g., #123)
+  - /help - command list
+- Tracks confirmed trades in SQLite database.
+- Self-learning with periodic model retraining.
+
+## Setup Instructions
+
+1. Clone or download the repository.
+
+2. Create a virtual environment and activate it:
+
+```bash
+python3.13 -m venv venv
+source venv/bin/activate  # Linux/macOS
+venv\\Scripts\\activate  # Windows
