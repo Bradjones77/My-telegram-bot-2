@@ -1,0 +1,11 @@
+app.add_handler(CommandHandler('help', help_command))
+app.add_handler(CommandHandler('signal', signal_command))
+app.add_handler(CommandHandler('signal.s', signal_short_command))
+app.add_handler(CommandHandler('signal.l', signal_long_command))
+
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex('^#'), confirm_trade))
+
+app.add_handler(MessageHandler(filters.COMMAND, unknown_command))
+
+print("Bot started...")
+app.run_polling()
